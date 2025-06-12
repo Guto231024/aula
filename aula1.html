@@ -1,11 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tabela</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Tabela do Bimestre</h1>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Matéria</th>
+                <th>Bimestre 1</th>
+                <th>Bimestre 2</th>
+                <th>Bimestre 3</th>
+                <th>Bimestre 4</th>
+                <th>Média</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Matemática</td>
+                <td>8.0</td>
+                <td>7.5</td> 
+                <td>9.0</td>
+                <td>8.5</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Física</td>
+                <td>9.0</td>
+                <td>8.5</td>
+                <td>7.5</td>
+                <td>9.6</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Química</td>
+                <td>6.0</td>
+                <td>7.5</td>
+                <td>8.0</td>
+                <td>7.5</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Biologia</td>
+                <td>8.0</td>
+                <td>9.0</td>
+                <td>7.5</td>
+                <td>9.5</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>História</td>
+                <td>7.5</td>
+                <td>8.0</td>
+                <td>9.0</td>
+                <td>3.5</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Geografia</td>
+                <td>8.5</td>
+                <td>7.0</td>
+                <td>8.0</td>
+                <td>6.3</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Inglês</td>
+                <td>9.0</td>
+                <td>8.5</td>
+                <td>8.0</td>
+                <td>6.3</td>
+                <td class="media"></td>
+            </tr>
+            <tr>
+                <td>Educação Física</td>
+                <td>8.0</td>
+                <td>9.0</td>
+                <td>7.5</td>
+                <td>9.3</td>
+                <td class="media"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $('tbody tr').each(function() {
+                var nota1 = parseFloat($(this).find('td:nth-child(2)').text());
+                var nota2 = parseFloat($(this).find('td:nth-child(3)').text());
+                var nota3 = parseFloat($(this).find('td:nth-child(4)').text());
+                var nota4 = parseFloat($(this).find('td:nth-child(5)').text());
+
+                var media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+                $(this).find('td.media').text(media.toFixed(1));
+            });
+            
+        });
+    </script>
 </body>
 </html>
